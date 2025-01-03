@@ -13,7 +13,13 @@ const port = process.env.PORT || 4000
 
 // middleware
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
+
+app.use(cors({
+    origin: 'https://e-commerce-frontend-t6kw.onrender.com',  // Replace with your frontend URL
+    methods: 'GET,POST,PUT,DELETE',  // Allow methods you want to support
+    allowedHeaders: 'Content-Type,Authorization',  // Allow headers you want to support
+  }));
 
 // db connection
 connectDB();
