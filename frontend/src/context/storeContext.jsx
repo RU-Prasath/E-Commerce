@@ -5,7 +5,7 @@ export const StoreContext = createContext(null)
 
 const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
-    const url = "https://kakeapp.houseofwebsites.com"
+    const url = "https://e-commerce-backend-v1te.onrender.com"
     const [token,setToken] = useState("")
     const [food_list,setFoodList] = useState([])
     const addToCart = async (itemId) => {

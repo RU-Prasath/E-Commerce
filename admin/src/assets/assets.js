@@ -14,4 +14,4 @@ export const assets ={
     parcel_icon
 }
 
-export const url = 'https://kakeapp.houseofwebsites.com'
+export const url = 'https://e-commerce-backend-v1te.onrender.com'

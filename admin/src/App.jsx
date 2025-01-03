@@ -12,7 +12,7 @@ import Login from './Components/Login/Login';
 
 
 const App = () => {
-  const url = "https://kakeapp.houseofwebsites.com"
+  const url = "https://e-commerce-backend-v1te.onrender.com"
   return (
     // <AuthContext>
       <div>
