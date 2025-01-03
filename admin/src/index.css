@@ -1,42 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@100..900&family=Jaro:opsz@6..72&family=Outfit:wght@100..900&family=Roboto:wght@500&family=Trade+Winds&display=swap');
-#root {
-  --light-purple: #D6ACF2;
-  --mid-light-purple: #8850BF;
-  --mid-purple: #5A378C;
-  --dark-mid-purple: #392259;
-  --dark-purple: #190F26;
-  --white: #fff;
-  --black: #000;
-}
-* {
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Big Shoulders Stencil Text";
-  letter-spacing: 1.5px;
-  font-weight: 900;
+  font-family: Outfit;
 }
-body {
+body{
   min-height: 100vh;
-  background-color: whitesmoke;
+  background-color: #fcfcfc;
 }
-a {
+a{
   text-decoration: none;
-  color: #8850BF;
+  color: inherit;
 }
-hr {
+hr{
   border: none;
   height: 1px;
-  background-color: #392259;
+  background-color: #a9a9a9;
 }
-.app-content {
+.app-content{
   display: flex;
 }
-.flex-col {
+.flex-col{
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-.cursor{
-  cursor: pointer;
 }

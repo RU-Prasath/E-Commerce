@@ -3,23 +3,22 @@ import axios from "axios"
 import './Add.css'
 import { assets } from '../../assets/assets'
 import { toast } from 'react-toastify'
-
+ 
 const Add = ({url}) => {
-
     const [image, setImage] = useState(false);
     const [data, setData] = useState({
         name:"",
         description:"",
         price:"",
-        category:"Watch",
+        category:"Theme",
     });
-
+ 
     const onChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setData(data => ({...data, [name]:value}))
     }
-
+ 
     const onSubmitHandler = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -28,13 +27,13 @@ const Add = ({url}) => {
         formData.append("price", Number(data.price))
         formData.append("category", data.category)
         formData.append("image", image)
-        const response = await axios.post(`${url}/api/product/add`, formData);
+        const response = await axios.post(`${url}/api/food/add`, formData);
         if (response.data.success) {
             setData({
                 name:"",
                 description:"",
                 price:"",
-                category:"Watch",
+                category:"Theme",
             })
             setImage(false)
             toast.success(response.data.message)
@@ -43,7 +42,7 @@ const Add = ({url}) => {
             toast.error(response.data.message)
         }
     }
-
+ 
   return (
     <div className='add'>
         <form className='flex-col' onSubmit={onSubmitHandler}>
@@ -66,14 +65,14 @@ const Add = ({url}) => {
                 <div className="add-category flex-col">
                     <p>Product Category</p>
                     <select onChange={onChangeHandler} name="category">
-                        <option value="Watch">Watch</option>
-                        <option value="Cooling Glass">Cooling Glass</option>
-                        <option value="Pant">Pant</option>
-                        <option value="Shirt">Shirt</option>
-                        <option value="Wallet">Wallet</option>
-                        <option value="Shoe">Shoe</option>
-                        <option value="Shorts">Shorts</option>
-                        <option value="T-shirt">T-shirt</option>
+                    <option value="Theme">Theme</option>
+               <option value="Birthday">Birthday</option>
+               <option value="Pinata">Pinata</option>
+               <option value="Numeric">Numeric</option>
+               <option value="Photo">Photo</option>
+               <option value="Kids">Kids</option>
+               <option value="Wedding">Wedding</option>
+               <option value="Half">Half</option>
                     </select>
                 </div>
                 <div className="add-price flex-col">
@@ -81,10 +80,11 @@ const Add = ({url}) => {
                     <input onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='Rs. 20' />
                 </div>
             </div>
-            <button type='submit' className='add-button'>ADD</button>
+            <button type='submit' className='add-btn'>ADD</button>
         </form>
     </div>
   )
 }
-
+ 
 export default Add
+ 
