@@ -13,12 +13,32 @@ const port = process.env.PORT || 4000
 
 // middleware
 app.use(express.json())
-// app.use(cors())
 
-app.use(cors({
-    origin: 'https://e-commerce-frontend-t6kw.onrender.com',  // Replace with your frontend URL
-    methods: 'GET,POST,PUT,DELETE',  // Allow methods you want to support
-    allowedHeaders: 'Content-Type,Authorization',  // Allow headers you want to support
+// app.use(cors({
+//     origin: 'https://e-commerce-frontend-t6kw.onrender.com',
+//     methods: 'GET,POST,PUT,DELETE',
+//     allowedHeaders: 'Content-Type,Authorization',
+//   }));
+
+// Define allowed origins
+const allowedOrigins = [
+    'https://e-commerce-frontend-t6kw.onrender.com',
+    'https://e-commerce-admin-vzrh.onrender.com'
+  ];
+  
+  // Enable CORS for the allowed origins
+  app.use(cors({
+    origin: function(origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) {
+        // Allow the request if the origin is in the allowedOrigins array
+        callback(null, true);
+      } else {
+        // Reject the request if the origin is not allowed
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
   }));
 
 // db connection
